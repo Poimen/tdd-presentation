@@ -976,3 +976,5 @@ Use TDD cycle to drive out implementation
 Keep learning
 
 Practise skills (e.g. practise kata's, refactoring exercises)
+
+Listen/Watch conference talks on testing techniques
