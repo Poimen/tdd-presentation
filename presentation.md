@@ -244,7 +244,7 @@ public int Add(string num)
 
 There should be an attempt to make the code more testable.
 
-Consider:
+After each refactoring remember to run the tests.
 
 ```csharp[1-14|3|7|10]
 public bool CreateCustomer(string name)
@@ -310,7 +310,7 @@ Keeping things at the same level of abstraction:
 ```csharp
 public bool CreateCustomer(string name)
 {
-  var customer = new CustomerBuilder.AsPending().WithName(name).Build();
+  var customer = Customer.Pending().WithName(name);
 
   _repository.Save(customer);
   _emailGateway.SendGreetings(customer);
@@ -451,9 +451,10 @@ Refactor ... nothing much to do for now ...
 Red stage again, update the test
 
 ```csharp
-public void Constructor_CreateCalculator()
+public void Add_ShouldThrowExcaption()
 {
-  Assert.Throws<NotImplementedException>(() => new Calculator())
+  var calculator = new Calculator();
+  Assert.Throws<NotImplementedException>(() => calculator.Add());
 }
 ```
 
@@ -467,17 +468,34 @@ public class Calculator
 {
   public Calculator()
   {
+  }
+
+  public Add()
+  {
     throw new NotImplementedException();
   }
 }
 ```
 
+
 Refactor ...
+
+```csharp
+public class Calculator
+{
+  public Add()
+  {
+    throw new NotImplementedException();
+  }
+}
+```
 
 
 ### Low Gear
 
 Focus is on small, incremental steps to gain understanding of the domain.
+
+Make small cuts into refactoring.
 
 
 ### High Gear
@@ -654,7 +672,8 @@ public static class TestAccountMother
 ## Warnings
 
 - Factory methods should not have default arguments
-  Builders can have defaults, Factory methods can build defaults, but should not be part of signature
+
+Builders can have defaults, Factory methods can build defaults, but should not be part of signature
 
 - Factory methods should not have optional parameters
 
