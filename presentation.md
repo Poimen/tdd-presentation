@@ -15,7 +15,7 @@ Programming is the closest thing we have to magic. It allows you to create thing
 ## End Game
 
 - Reduce Monkey See, Monkey Do
-- Programming with G.U.T.S.
+- Programming with GUTs
 - Better understanding of what we're doing with our testing
 
 
@@ -140,8 +140,6 @@ Builds a systematic approach to developing software.
 
 Starts you thinking of the goal in mind.
 
-Attempts to prevent premature optimisation.
-
 and ...
 
 
@@ -224,10 +222,6 @@ public int Add(string num)
 
 ![External Image](./images/image_17.png)
 
-### The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise
-
--- Edsgar W Dijkstra
-
 
 ## The Blue Phase
 
@@ -281,7 +275,7 @@ public CustomerCreator(ICustomerRepository repository,
 }
 ```
 
-```csharp
+```csharp[1-11|3-5]
 public bool CreateCustomer(string name)
 {
   var customer = new Customer();
@@ -316,7 +310,7 @@ Keeping things at the same level of abstraction:
 ```csharp
 public bool CreateCustomer(string name)
 {
-  var customer = new CustomerBuilder().AsPending().WithName(name);
+  var customer = new CustomerBuilder.AsPending().WithName(name).Build();
 
   _repository.Save(customer);
   _emailGateway.SendGreetings(customer);
@@ -324,6 +318,46 @@ public bool CreateCustomer(string name)
   return true;
 }
 ```
+
+### The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise
+
+-- Edsgar W Dijkstra
+
+
+### But I see a new feature/requirement/test case while I'm refactoring ...
+
+Add comments to help remind you
+
+Use comments to map out a process you see
+
+```csharp
+public int Add(string numbers)
+{
+  // Use a whitespace check on numbers
+
+  // Parse the numbers into an array, comma separator
+  // remember to strip ending spaces
+  return 0;
+}
+```
+
+
+## Refactoring code smells
+
+... refactor to remove smells that are starting to show ...
+
+
+#### Some common smells
+
+- Verbose Naming
+- Noisy Logging
+- Repetition
+- Duplication
+- Unnecessary code
+- Mixed levels of abstraction
+- Legacy coding habits
+- Programming by Coincidence
+- Programming by Superstition
 
 
 ## So what's the problem?
@@ -339,6 +373,11 @@ public bool CreateCustomer(string name)
 ### When humans get involved ...
 
 ![External Image](./images/image_9.png)
+
+
+### When humans get involved ...
+
+![External Image](./images/image_23.png)
 
 
 ### The "Laws" try to keep us balanced
@@ -609,6 +648,20 @@ public static class TestAccountMother
 ```
 
 
+![External Image](./images/image_20.webp)
+
+
+## Warnings
+
+- Factory methods should not have default arguments
+  Builders can have defaults, Factory methods can build defaults, but should not be part of signature
+
+- Factory methods should not have optional parameters
+
+The tests and test data should be as deterministic as possible
+
+
+
 
 ## So
 
@@ -704,6 +757,19 @@ public static bool LeapYearExpectation(int year)
   return year % 4 && year % 100 != 0 || year % 400;
 }
 ```
+
+
+### The 1-to-1 test function fallacy
+
+There is no hard rule that every public function must have at least 1 test method
+
+![External Image](./images/image_21.png)
+
+
+Tests can exercise multiple public endpoints
+
+![External Image](./images/image_22.png)
+
 
 
 
@@ -844,6 +910,18 @@ public class Eventer
 Fragile tests are a result of too much coupling.
 
 Too much internal knowledge of the implementation in the test.
+
+
+## I can see where this is going, I'm going to make a Thing-a-ma-bob!
+
+Writing the simplest code allows you to see the necessary abstractions before jumping to a solution
+
+Table based algorithms vs Flow control
+
+
+#### The real problem is that programmers have spent far too much time worrying about efficiency in the wrong places and at the wrong times; premature optimization is the root of all evil (or at least most of it) in programming.
+
+-- Donald Kunth
 
 
 ## But what about dependencies?
