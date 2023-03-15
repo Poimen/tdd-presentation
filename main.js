@@ -7,7 +7,6 @@ import Markdown from 'reveal.js/plugin/markdown/markdown.esm.js';
 import HighLight from 'reveal.js/plugin/highlight/highlight.js';
 import Notes from 'reveal.js/plugin/notes/notes.js';
 import RMath from 'reveal.js/plugin/math/math.js';
-// import p from './presentation.md';
 
 let deck = new Reveal({
    plugins: [ Markdown, HighLight, Notes, RMath ]
