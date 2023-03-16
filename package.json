@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && copyfiles presentation.md images dist/.",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "copyfiles": "^2.4.1",
     "vite": "^4.1.0"
   },
   "dependencies": {
