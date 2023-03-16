@@ -42,6 +42,8 @@ David Heinemeier Hansson - DHH (2014)
 
 ![External Image](./images/image_26.webp)
 
+![External Image](./images/image_35.gif)
+
 
 ![External Image](./images/image_25.jpg)
 
@@ -249,18 +251,16 @@ public int Add(string num)
 
 Only refactor tests, **or** production code, never both at the same time!
 
-```csharp
+```csharp[1-15|1|3|7|13]
 public int Add(string numbers)
 {
   if (string.IsNullOrWhiteSpace(numbers))
   {
     return 0;
   }
-  // more stuff here
+  // ...
 }
-```
 
-```csharp
 public void Add_GivenAnEmptyString_ShouldReturnZero()
 {
   var calculator = new Calculator();
@@ -304,12 +304,14 @@ public CustomerCreator(ICustomerRepository repository,
 }
 ```
 
-```csharp[1-11|3-5]
+```csharp[1-11|3-7]
 public bool CreateCustomer(string name)
 {
-  var customer = new Customer();
-  customer.Name = name;
-  customer.State = CustomerState.Pending;
+  var customer = new Customer
+  {
+    Name = name,
+    State = CustomerState.Pending
+  }
 
   _repository.Save(customer);
   _emailGateway.SendGreetings(customer);
@@ -730,9 +732,9 @@ The tests and test data should be as deterministic as possible
 
 ## Using TDD "incorrectly"
 
-- Failing into the trap of micro-red-green-green-green
+- Falling into the trap of micro-red-green-green-green
 
-- Reliant on unit tests only and not doing proper dev-testing
+- Reliant on unit tests only and not doing proper dev testing
 
 ![External Image](./images/image_27.jpg)
 
