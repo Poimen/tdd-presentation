@@ -70,6 +70,8 @@ Unit Testing is a type of software testing where individual units or components 
 
 ![External Image](./images/image_36.webp)
 
+Do I get half credit?
+
 
 ## Test Principle
 
