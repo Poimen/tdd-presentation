@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && copyfiles presentation.md images dist/.",
+    "build": "vite build --base=tdd-presentation && copyfiles presentation.md images dist/.",
     "preview": "vite preview"
   },
   "devDependencies": {
