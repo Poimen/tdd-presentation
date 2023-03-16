@@ -703,6 +703,9 @@ Compose Builders, and builders in builders
 ![External Image](./images/image_16.png)
 
 
+![External Image](./images/image_20.webp)
+
+
 ### Creation Patterns
 
 Factory methods can create objects/data based on a named set.
@@ -719,9 +722,6 @@ public static class TestAccountMother
   }
 }
 ```
-
-
-![External Image](./images/image_20.webp)
 
 
 ## Warnings
