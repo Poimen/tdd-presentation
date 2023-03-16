@@ -422,7 +422,7 @@ public int Add(string numbers)
 ![External Image](./images/image_10.jpg)
 
 
-### But I just a small bug to fix ...
+### But I just have a small bug to fix ...
 
 There are tests, the test confirmed the bug.
 
