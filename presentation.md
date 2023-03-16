@@ -314,7 +314,7 @@ public bool CreateCustomer(string name)
   {
     Name = name,
     State = CustomerState.Pending
-  }
+  };
 
   _repository.Save(customer);
   _emailGateway.SendGreetings(customer);
