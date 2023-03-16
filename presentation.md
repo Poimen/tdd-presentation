@@ -40,6 +40,12 @@ I have yet to see a problem, however complicated, which, when you looked at it i
 David Heinemeier Hansson - DHH (2014)
 
 
+![External Image](./images/image_26.webp)
+
+
+![External Image](./images/image_25.jpg)
+
+
 ## Software Testing
 
 Software Testing is a method to check whether the actual software product matches expected requirements and to ensure that software product is defect free.
@@ -57,6 +63,8 @@ Unit Testing is a type of software testing where individual units or components 
 ![External Image](./images/image_2.png)
 
 
+![External Image](./images/image_28.gif)
+
 
 
 ## But first an intermission
@@ -67,6 +75,8 @@ A thought experiment...
 ### As a restaurateur, I want to put an Elephant in a fridge.
 
 How would you fit an elephant into a fridge?
+
+![External Image](./images/image_29.png)
 
 
 ## Some questions you may ask yourself
@@ -97,10 +107,14 @@ Step 4: Refactor and Improve
 
 How would you fit a giraffe into a fridge?
 
+![External Image](./images/image_30.png)
+
 
 ### Beware of side effects
 
 Any way you like, just remove the Elephant first ...
+
+![External Image](./images/image_31.webp)
 
 
 
@@ -184,7 +198,7 @@ public void Add_GivenAnEmptyString_ShouldReturnZero()
   // Arrange
   var calculator = new Calculator();
   // Act
-  var result = calculator.Add(string.Empty);
+  var result = calculator.Add("");
   // Assert
   Assert.That(result, Is.EqualTo(0));
 }
@@ -201,7 +215,7 @@ public void Add_GivenAnEmptyString_ShouldReturnZero()
   // Arrange
   var calculator = new Calculator();
   // Act
-  var result = calculator.Add(string.Empty);
+  var result = calculator.Add("");
   // Assert
   Assert.That(result, Is.EqualTo(0));
 }
@@ -228,14 +242,22 @@ public int Add(string num)
 Only refactor tests, **or** production code, never both at the same time!
 
 ```csharp
-public int Add(string num)
+public int Add(string numbers)
 {
-  if (string.IsNullOrWhiteSpace(num))
+  if (string.IsNullOrWhiteSpace(numbers))
   {
     return 0;
   }
-
   // more stuff here
+}
+```
+
+```csharp
+public void Add_GivenAnEmptyString_ShouldReturnZero()
+{
+  var calculator = new Calculator();
+  var result = calculator.Add(string.Empty);
+  Assert.That(result, Is.EqualTo(0));
 }
 ```
 
@@ -243,8 +265,6 @@ public int Add(string num)
 ## The Blue Phase
 
 There should be an attempt to make the code more testable.
-
-After each refactoring remember to run the tests.
 
 ```csharp[1-14|3|7|10]
 public bool CreateCustomer(string name)
@@ -262,6 +282,7 @@ public bool CreateCustomer(string name)
   return true;
 }
 ```
+After each refactoring remember to run the tests.
 
 
 As a first pass, this might be acceptable, but for testability we create dependencies:
@@ -340,6 +361,9 @@ public int Add(string numbers)
   return 0;
 }
 ```
+
+
+![External Image](./images/image_24.webp)
 
 
 ## Refactoring code smells
@@ -538,6 +562,11 @@ Makes bigger steps and assumes higher understanding of domain.
 
 Makes use of copy-paste techniques, etc. Can lead to the most number of mistakes and missed cases.
 
+And always ...
+
+
+![External Image](./images/image_32.png)
+
 Always engage BRAIN!
 
 
@@ -548,6 +577,8 @@ If you hit a block, reverse.
 Refactor step failures or refactoring too far.
 
 Use `git commit` to your advantage before starting a refactor.
+
+![External Image](./images/image_33.jpg)
 
 
 
@@ -569,6 +600,8 @@ Consider:
 We choose where we should make a "fake" component.
 
 As deep as possible, use concrete objects.
+
+![External Image](./images/image_34.png)
 
 
 ## Dependencies
@@ -689,9 +722,11 @@ The tests and test data should be as deterministic as possible
 
 ## Using TDD "incorrectly"
 
-- Failing into the traps of micro-red-green-green-green
+- Failing into the trap of micro-red-green-green-green
 
-- Using TDD for the wrong types of tests (e.g. UI tests)
+- Reliant on unit tests only and not doing proper dev-testing
+
+![External Image](./images/image_27.jpg)
 
 
 ## Fragile tests
