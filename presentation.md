@@ -218,6 +218,13 @@ public void Add_GivenAnEmptyString_ShouldReturnZero()
 ```
 
 
+## The Red Phase
+
+The test should fail for the right reason and the error message should make sense.
+
+Read the error message, and validate your expectation.
+
+
 ## The Green Phase
 
 Write as *little* of a production code as possible, to pass the test:
