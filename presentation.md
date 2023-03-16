@@ -7,7 +7,7 @@
 
 ## End Game
 
-Programming is the closest thing we have to magic. It allows you to create things with words.
+#### Programming is the closest thing we have to magic. It allows you to create things with words.
 
 -- Jenni Luckett
 
@@ -28,7 +28,7 @@ When all I wanted was a *for* loop ...
 
 ## End Game
 
-I have yet to see a problem, however complicated, which, when you looked at it in the right way, did not become still more complicated.
+#### I have yet to see a problem, however complicated, which, when you looked at it in the right way, did not become still more complicated.
 
 -- Andersons Law
 
@@ -64,6 +64,14 @@ Unit Testing is a type of software testing where individual units or components 
 
 
 ![External Image](./images/image_28.gif)
+
+
+## Test Principle
+
+### F.I.R.S.T
+
+Fast, Isolated, Repeatable, Self-validating, Thorough
+
 
 
 
@@ -123,7 +131,7 @@ Any way you like, just remove the Elephant first ...
 Or Why TDD works...
 
 
-### Walking on water and developing software from a specification are easy if both are frozen.
+#### Walking on water and developing software from a specification are easy if both are frozen.
 
 -- Edward V Berard
 
@@ -168,7 +176,7 @@ Rule are meant to be broken ...
 
 ## Practical TDD
 
-### Nothing is more dangerous than an idea, when you have only one
+#### Nothing is more dangerous than an idea, when you have only one
 
 -- Emile Chartier
 
@@ -340,7 +348,7 @@ public bool CreateCustomer(string name)
 }
 ```
 
-### The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise
+#### The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise
 
 -- Edsgar W Dijkstra
 
@@ -415,7 +423,7 @@ There are tests, the test confirmed the bug.
 
 Always start at the `Red` phase, write a test that shows the bug, then fix the bug.
 
-Try to enforce your own process to improve the state of the test base.
+Try to enforce process to improve the state of the test base and/or test data.
 
 
 
@@ -964,6 +972,8 @@ public class Eventer
 Fragile tests are a result of too much coupling.
 
 Too much internal knowledge of the implementation in the test.
+
+Tests should be at least 1 level of abstraction higher than the SUT.
 
 
 ## I can see where this is going, I'm going to make a Thing-a-ma-bob!
